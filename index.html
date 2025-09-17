@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adaditya Kalakar</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{background:#0d0d0d;color:#fff;text-align:center;}
+
+    /* Header */
+    header{padding:20px;background:#111;display:flex;justify-content:space-between;align-items:center;}
+    header h1{font-size:24px;}
+    header h1 span{color:#3498db;}
+    header nav a{margin-left:15px;color:#fff;text-decoration:none;}
+    header nav a:hover{color:#3498db;}
+
+    /* Hero */
+    .hero{padding:40px 20px;}
+    .hero h2{font-size:28px;margin-bottom:10px;}
+    .hero h2 span{color:#3498db;}
+    .hero .number{font-size:20px;font-weight:bold;color:#00ff99;margin-top:10px;}
+
+    /* Slider */
+    .slider{
+      position:relative;
+      width:90%;
+      max-width:750px;
+      height:420px;
+      margin:40px auto;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow:0 0 25px rgba(0,150,255,0.6);
+    }
+    .slides{
+      display:flex;
+      height:100%;
+      transition:transform .6s ease;
+    }
+    .slides img{
+      flex:0 0 100%;       /* हर image 100% width लेगी */
+      height:100%;
+      object-fit:contain;  /* पूरी image fit होगी */
+      background:#000;
+      padding:10px;
+      filter:drop-shadow(0 0 20px rgba(0,150,255,.7));
+    }
+
+    /* Buttons */
+    .btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:#3498db;
+      border:none;
+      padding:12px;
+      color:#fff;
+      font-size:20px;
+      border-radius:50%;
+      cursor:pointer;
+      box-shadow:0 0 20px rgba(0,150,255,.8);
+      transition:.3s;
+    }
+    .btn:hover{background:#1d6fa5;}
+    #prev{left:15px;} 
+    #next{right:15px;}
+    #playPause{bottom:15px;right:15px;top:auto;transform:none;}
+
+    /* Dots */
+    .dots{
+      position:absolute;
+      bottom:15px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:10px;
+    }
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#777;
+      cursor:pointer;
+    }
+    .dot.active{
+      background:#3498db;
+      box-shadow:0 0 10px #3498db;
+    }
+
+    /* About Section */
+    .about{max-width:800px;margin:40px auto;padding:20px;text-align:center;}
+    .about h2{color:#3498db;margin-bottom:15px;}
+
+    /* Motivation Section */
+    .motivation{max-width:900px;margin:40px auto;padding:20px;}
+    .motivation h2{color:#3498db;margin-bottom:15px;}
+    .motivation ul{list-style:none;padding:0;text-align:left;max-width:600px;margin:0 auto;}
+    .motivation li{
+      margin:12px 0;
+      padding:12px;
+      background:#111;
+      border-left:4px solid #3498db;
+      border-radius:8px;
+      box-shadow:0 0 15px rgba(0,150,255,.3);
+    }
+
+    /* Contact Buttons */
+    .contact{
+      margin:40px auto;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .contact a{
+      padding:12px 20px;
+      border-radius:30px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:bold;
+      box-shadow:0 0 15px rgba(0,150,255,.6);
+      transition:.3s;
+    }
+    .contact a:hover{box-shadow:0 0 25px rgba(0,150,255,1);}
+    .whatsapp{background:#25D366;}
+    .telegram{background:#0088cc;}
+    .phone{background:#3498db;}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Adaditya <span>Kalakar</span></h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Hello, I'm <span>Kalakar</span></h2>
+    <p>Creative Designer & Artist</p>
+    <div class="number">📞 7235928827</div>
+  </section>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="photo1.jpg" alt="Photo 1">
+      <img src="photo2.jpg" alt="Photo 2">
+      <img src="photo3.jpg" alt="Photo 3">
+      <img src="photo4.jpg" alt="Photo 4">
+      <img src="photo5.jpg" alt="Photo 5">
+    </div>
+    <button class="btn" id="prev">&#10094;</button>
+    <button class="btn" id="next">&#10095;</button>
+    <button class="btn" id="playPause">⏸</button>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I'm Adaditya Kalakar, a passionate designer and developer who loves turning ideas into digital reality. 
+       With creativity and technical skills, I aim to craft unique portfolios, websites, and user experiences.</p>
+  </section>
+
+  <!-- Motivation -->
+  <section class="motivation">
+    <h2>Why Web Development?</h2>
+    <ul>
+      <li>🌐 It connects creativity with technology to build real-world solutions.</li>
+      <li>🚀 Every project teaches something new and keeps you growing.</li>
+      <li>💡 You can turn simple ideas into impactful digital products.</li>
+      <li>🤝 It allows you to reach people worldwide with your skills.</li>
+      <li>🔥 Web keeps evolving — it never lets you stop learning.</li>
+    </ul>
+  </section>
+
+  <!-- Contact Buttons -->
+  <div class="contact">
+    <a class="whatsapp" href="https://wa.me/917235928827" target="_blank">WhatsApp</a>
+    <a class="telegram" href="https://t.me/+917235928827" target="_blank">Telegram</a>
+    <a class="phone" href="tel:7235928827">Call Now</a>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const slides=document.getElementById("slides");
+    const total=slides.children.length;
+    let index=0;
+    let autoSlide;
+    let isPlaying=true;
+
+    const dotsWrap=document.getElementById("dots");
+    for(let i=0;i<total;i++){
+      let d=document.createElement("div");
+      d.className="dot"+(i===0?" active":"");
+      d.addEventListener("click",()=>goTo(i));
+      dotsWrap.appendChild(d);
+    }
+    function updateDots(){
+      [...dotsWrap.children].forEach((d,i)=>d.classList.toggle("active",i===index));
+    }
+    function goTo(i){
+      index=(i+total)%total;
+      slides.style.transform=`translateX(-${index*100}%)`;
+      updateDots();
+    }
+    document.getElementById("prev").onclick=()=>goTo(index-1);
+    document.getElementById("next").onclick=()=>goTo(index+1);
+
+    function startAuto(){
+      autoSlide=setInterval(()=>goTo(index+1),4000);
+    }
+    function stopAuto(){
+      clearInterval(autoSlide);
+    }
+
+    // Pause/Play Button
+    const playPauseBtn=document.getElementById("playPause");
+    playPauseBtn.onclick=()=>{
+      if(isPlaying){
+        stopAuto();
+        playPauseBtn.textContent="▶️";
+      }else{
+        startAuto();
+        playPauseBtn.textContent="⏸";
+      }
+      isPlaying=!isPlaying;
+    };
+
+    // Start auto-slide
+    startAuto();
+  </script>
+</body>
+</html>
